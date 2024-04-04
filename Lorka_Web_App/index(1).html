@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="https://lirp.cdn-website.com/87a49eaf/dms3rep/multi/opt/lorka+logo-126w.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#000000" />
+	<meta name="description" content="Web site created using create-react-app" />
+	<link rel="apple-touch-icon" href="https://lirp.cdn-website.com/87a49eaf/dms3rep/multi/opt/lorka+logo-126w.png" />
+
+	<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+	<title>Lorka Makeup and Beauty Training</title>
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#Brands img {
+			width: 100%;
+		}
+
+		.fade-in-image {
+			opacity: 0;
+			transition: opacity 1s ease-in-out;
+		}
+
+		.fade-in-image.fade-in {
+			opacity: 1;
+		}
+
+		.booknow {
+
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.header {
+			padding-bottom: 0.5%;
+			background-color: white;
+			box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+			width: 100%;
+			/* Ensure the header spans the full width */
+			top: 0;
+			z-index: 1000;
+			/* Set a high z-index to keep it above other elements */
+		}
+
+		#burger {
+			display: none;
+		}
+
+		#PageHeader {
+			color: black;
+			-webkit-text-stroke: 2px #2e8b57;
+			stroke: 1px #2e8b57;
+			font-size: 40px;
+			justify-content: center;
+			text-align: center;
+			margin: auto;
+		}
+
+		.navbar li {
+			margin-top: 3%;
+			padding: 20px;
+			font-size: x-large;
+			color: #2e8b57;
+		}
+
+		.navbar li:hover {
+			padding: 20px;
+			border-bottom: 7px solid #2e8b57;
+			transition: border-bottom .5s ease-in;
+			font-size: 22px;
+		}
+
+		.navbar {
+			color: black;
+			display: flex;
+			width: 100%;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		#logo {
+			margin-left: auto;
+			/* Adjust the margin for spacing */
+		}
+
+
+		@keyframes wave {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(20px);
+			}
+		}
+
+		@media(min-width: 1000px) {
+
+
+
+
+
+			body {
+				background-color: white;
+				font-family: "Times New Roman", Times, serif;
+			}
+
+			h1 {
+				font-size: 50px;
+			}
+
+			.background-container {
+				justify-content: center;
+				text-align: center;
+				margin-top: 0;
+				width: auto;
+				background-image: url("../Lorka_Web_App/assets/Background.jpg") !important;
+				background-repeat: no-repeat !important;
+				background-size: cover !important;
+				background-attachment: scroll !important;
+				background-position: top;
+				max-width: none !important;
+
+				padding: 254px 40px !important;
+				height: auto !important;
+				background-color: transparent !important;
+				padding: 20%;
+			}
+
+			.ourteam {
+				position: relative;
+				overflow: hidden;
+			}
+
+			#squiggle {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: -1;
+				animation: wave 2s infinite alternate;
+			}
+
+			.content {
+				z-index: 2;
+				color: white;
+				text-decoration-skip-ink: none;
+				word-wrap: break-word;
+				text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+				backdrop-filter: brightness(60%);
+				padding-top: 10px;
+				padding-bottom: 25px;
+				font-weight: 300;
+			}
+
+			#learn {
+				width: 2%;
+				height: 2%;
+				background-color: #2e8b57;
+				border-radius: 10px;
+				border: 1px 1px 1px 1px solid black;
+				text-decoration: none;
+				color: white;
+				padding: 0.5%;
+				visibility: hidden;
+			}
+
+			a:hover {
+				filter: brightness(60%);
+			}
+
+			#whytrain {
+    margin-top: 5%;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #2e8b57;
+}
+ #desc {
+    justify-content: center;
+    text-align: center;
+    color: #2e8b57;
+    word-wrap: break-word;
+    padding: 0 20px; 
+  }
+.gridContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to next line if necessary */
+    justify-content: center; /* Center grid items horizontally */
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column; /* Align image and text vertically */
+    padding: 20px; /* Adjust padding as needed */
+    text-align: center; /* Center-align text */
+    flex: 1 1 calc(50% - 40px); /* Ensure items take up equal space and leave space between them */
+    margin-top:5%;
+    margin-left: 5%; /* Add some margin between items */
+    box-sizing: border-box; /* Include padding in width calculation */
+    justify-content: center;
+}
+
+.imgContainer {
+    flex: 0 0 auto; /* Reset width for image container */
+    margin: 0 auto; /* Center-align image */
+}
+
+.imgContainer img {
+    width: 100%; /* Ensure images fill their container */
+    max-width: 200px; /* Adjust maximum width of images */
+}
+
+.textContainer {
+    flex: 1;
+}
+
+.head {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.desc {
+    margin-top: 0;
+}
+
+			#About {
+				display: flex;
+			}
+
+			#abtxtcontainer {
+				background-color: white;
+				color: #2e8b57;
+				padding-bottom: 5%;
+			}
+			#abtxtcontainer>h3 {
+				flex: 1;
+				color: #2e8b57;
+				font-size: 40px;
+				font-weight: 500;
+				margin-left: 40px;
+			}
+
+			#abtxtcontainer>p {
+				flex: 1;
+				color: #2e8b57;
+				margin-left: 40px;
+				margin-bottom: 4%;
+			}
+			#abImgContainter {
+				flex: 0;
+				padding-right: 300px;
+				background-image: url("../Lorka_Web_App/assets/logo.png");
+				zoom: 3;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+
+			#callbtn {
+				padding: 1%;
+				border-radius: 5%;
+				border: 2px solid white;
+				background-color: #2e8b57;
+				margin-left: 3%;
+				color: white;
+			}
+
+			#justina {
+				width: 90%;
+			}
+
+			.column {
+				float: left;
+				width: 25%;
+				margin-bottom: 40px;
+				margin-right: 2%;
+				margin-left: 5%;
+				padding: 0 8px;
+				color: #2e8b57;
+			}
+
+			@media screen and (max-width: 650px) {
+				.column {
+					width: 100%;
+					display: block;
+				}
+			}
+
+			.card {
+				padding-bottom: 5%;
+				border-radius: 5%;
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+
+			.container {
+				box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+				padding: 10%;
+				height: 100%;
+				background-color: white;
+			}
+
+			.card img {
+				width: 100%;
+				border-radius: 50%;
+			}
+
+			.container::after,
+			.row::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			.title {
+				color: #2e8b57;
+			}
+
+			.button {
+				border: none;
+				outline: 0;
+				display: inline-block;
+				padding: 8px;
+				color: white;
+				background-color: #000;
+				text-align: center;
+				cursor: pointer;
+				width: 100%;
+			}
+
+			.button:hover {
+				background-color: #555;
+			}
+
+			.ourteamheader {
+				font-size: 40px;
+				color: black;
+				margin-left: 4%;
+				margin-top: 0%;
+				padding-top: 3%;
+			}
+
+			#meet {
+				color: black;
+				font-weight: 100;
+			}
+
+			#team {
+				color: #2e8b57;
+				font-weight: 600;
+			}
+
+			#Offer {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				margin: 20px;
+			}
+
+			#offerImgContainter {
+				background-color: white;
+				padding: 20px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				justify-content: space-around;
+				max-width: 1200px;
+				width: 100%;
+			}
+
+			.category {
+				text-align: center;
+				border: 3px solid rgb(190, 163, 6);
+				padding: 2%;
+				border-radius: 1.5%;
+				box-shadow: 1px 1px 1px 1px gray;
+			}
+
+
+			.category h3 {
+				font-size: 24px;
+				margin-bottom: 10px;
+				color: #2e8b57;
+			}
+
+			.category ul {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+				color: #2e8b57;
+			}
+
+			.category li {
+				margin-bottom: 8px;
+			}
+
+			#whatweoffer {
+				text-align: center;
+				color: #2e8b57;
+				font-size: 40px;
+				font-weight: 500;
+			}
+
+			#headering {
+				text-align: center;
+				font-size: larger;
+			}
+
+			#bookbtn {
+				padding: 1%;
+				border-bottom: 3px solid white;
+				margin-left: 4%;
+				padding-top: 10%;
+			}
+
+			#bookbtn:hover {
+				color: #26814e;
+			}
+
+			#Contact {
+				display: flex;
+				padding-bottom: 5%;
+				padding-top: 5%;
+				padding-left: 5%;
+				padding-right: 5%;
+				color: #26814e;
+				background-color: #26814e;
+				color: white;
+			}
+
+			#CompanyInfo {
+				width: 50%;
+				color: white;
+				margin-right: 15%;
+			}
+			#CompanyInfo a {
+				text-decoration: none;
+				color: white;
+			}
+
+			#CompanyInfo div {
+				margin-top: 10%;
+			}
+
+			#CompanyInfo h3 {
+				margin-top: 10%;
+				font-size: large;
+			}
+
+			#OpeningHours {
+				font-weight: 600;
+				font-size: large;
+			}
+			#socials {
+				display: flex;
+			}
+			#socials img {
+				width: 10%;
+			}
+		}
+
+
+
+
+		@media (max-width: 1000px) {
+			h1 {
+				font-size: 50px;
+			}
+
+			.background-container {
+				justify-content: center;
+				text-align: center;
+				margin-top: 0;
+				width: auto;
+				background-image: url("../Lorka_Web_App/assets/Background.jpg") !important;
+				background-repeat: no-repeat !important;
+				background-size: cover !important;
+				background-attachment: fixed !important;
+				max-width: none !important;
+
+				padding: 254px 40px !important;
+				height: auto !important;
+				background-color: transparent !important;
+				padding: 20%;
+			}
+
+			#whytrain {
+				margin-top: 5%;
+				padding-bottom: 50px;
+			}
+
+			.content {
+				z-index: 2;
+				color: white;
+				text-decoration-skip-ink: none;
+				word-wrap: break-word;
+				text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+				backdrop-filter: brightness(60%);
+				padding-top: 10px;
+				padding-bottom: 25px;
+				font-weight: 300;
+			}
+
+			#learn {
+				width: 2%;
+				height: 2%;
+				background-color: #2e8b57;
+				border-radius: 10px;
+				border: 1px 1px 1px 1px solid black;
+				text-decoration: none;
+				color: white;
+				display: none;
+				padding: 0.5%;
+			}
+
+			a:hover {
+				filter: brightness(60%);
+			}
+
+
+			#desc {
+				justify-content: center;
+				text-align: center;
+				color: #2e8b57;
+				word-wrap: break-word;
+				padding: 0 20px;
+			}
+
+			.gridContainer {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.grid-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 20px;
+				text-wrap: no-wrap;
+			}
+
+			.imgContainer img {
+				width: 50%;
+				margin-left: 22%;
+			}
+
+			.imgContainer {
+				margin-bottom: 20px;
+				width: 100%;
+			}
+
+			#mov {
+				margin-left: 30%
+			}
+
+			.textContainer {
+				text-align: center;
+				color: #2e8b57;
+			}
+
+			svg {
+				display: none;
+			}
+
+			.head {
+				margin-top: 0;
+				font-size: 24px;
+			}
+
+			.desc {
+				margin-top: 0;
+			}
+
+			#About {
+				flex-direction: column;
+			}
+
+			#abtxtcontainer {
+				background-color: white;
+				color: #2e8b57;
+				padding: 5% 10px;
+			}
+
+			#abtxtcontainer>h3 {
+				font-size: 28px;
+				font-weight: 500;
+				margin-left: 0;
+			}
+
+			#abtxtcontainer>p {
+				margin-left: 0;
+				margin-bottom: 4%;
+			}
+
+			#abImgContainer {
+				flex: 0;
+				background-image: url("../Lorka_Web_App/assets/logo.png");
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+				width: 100%;
+				height: 200px;
+				margin-bottom: 20px;
+			}
+
+			#callbtn {
+				padding: 8px 12px;
+				border-radius: 5px;
+				border: 2px solid white;
+				background-color: #2e8b57;
+				margin-left: 0%;
+				color: white;
+			}
+
+			.column {
+				width: 100%;
+				margin-bottom: 40px;
+				margin-right: 0;
+				margin-left: 0;
+				padding: 0 8px;
+				color: #2e8b57;
+			}
+
+			.card {
+
+				padding-bottom: 5%;
+				border-radius: 5%;
+				display: flex;
+				flex-direction: column;
+				margin-left: 10%;
+
+			}
+
+			.container {
+				box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
+				padding: 0 16px;
+				padding-bottom: 5%;
+				background-color: white;
+			}
+
+			.card img {
+				width: 100%;
+				border-radius: 50%;
+			}
+			.column {
+				width: 90%;
+				margin-right: 2%;
+			}
+
+			.ourteam {
+				position: relative;
+				overflow: hidden;
+			}
+
+			#squiggle {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: -1;
+				animation: wave 2s infinite alternate;
+			}
+
+			.ourteamheader {
+				font-size: 40px;
+				color: black;
+				margin-left: 4%;
+				margin-top: 0%;
+				padding-top: 3%;
+			}
+
+			#meet {
+				color: black;
+				font-weight: 100;
+			}
+
+			#team {
+				color: #2e8b57;
+				font-weight: 600;
+			}
+
+			#whatweoffer {
+				text-align: center;
+				color: #2e8b57;
+				font-size: 40px;
+				font-weight: 500;
+			}
+
+			#headering {
+				text-align: center;
+				font-size: larger;
+			}
+
+			#Offer {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				margin: 20px;
+			}
+
+			#offerImgContainter {
+				background-color: white;
+				padding: 20px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				justify-content: space-around;
+				max-width: 1200px;
+				width: 100%;
+			}
+
+			.category {
+				text-align: center;
+				border: 3px solid rgb(190, 163, 6);
+				padding: 2%;
+				border-radius: 1.5%;
+				box-shadow: 1px 1px 1px 1px gray;
+			}
+
+
+
+			.category h3 {
+				font-size: 24px;
+				margin-bottom: 10px;
+				color: #2e8b57;
+			}
+
+			.category ul {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+				color: #2e8b57;
+			}
+
+			.category li {
+				margin-bottom: 8px;
+			}
+
+			#Contact {
+				display: flex;
+				padding-bottom: 5%;
+				padding-top: 5%;
+				padding-left: 5%;
+				padding-right: 5%;
+				color: #26814e;
+				background-color: #26814e;
+				color: white;
+			}
+
+			#CompanyInfo {
+				width: 50%;
+				color: white;
+				margin-left: 10%;
+			}
+			#CompanyInfo a {
+				text-decoration: none;
+				color: white;
+			}
+
+			#CompanyInfo div {
+				margin-top: 10%;
+			}
+
+			#CompanyInfo h3 {
+				margin-top: 10%;
+			}
+
+			#OpeningHours {
+				font-weight: 600;
+			}
+			#socials {
+				display: flex;
+			}
+			#socials img {
+				width: 10%;
+			}
+
+			#CompanyInfo {
+				width: 50%;
+				margin-left: 10%;
+			}
+
+			#OpeningHours {
+				width: 50%;
+				margin-top: 0;
+			}
+
+
+
+			#Contact {
+				display: flex;
+				flex-wrap: wrap;
+				padding: 5%;
+				color: white;
+				background-color: #26814e;
+			}
+
+			#CompanyInfo {
+				width: 100%;
+				margin: 0;
+			}
+
+			#CompanyInfo a {
+				text-decoration: none;
+				color: white;
+			}
+
+			#CompanyInfo div,
+			#CompanyInfo h3 {
+				margin-top: 5%;
+				font-size: medium;
+			}
+
+			#OpeningHours {
+				font-weight: 600;
+				width: 100%;
+				margin-top: 5%;
+
+			}
+
+			#socials {
+				display: flex;
+				justify-content: space-around;
+			}
+
+			#socials img {
+				width: 20%;
+			}
+
+			.navbar {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.navbar li {
+				width: 100%;
+				text-align: center;
+				display: none;
+			}
+
+			#logo {
+				float: none;
+				margin: 10px auto;
+				/* Adjust the margin as needed */
+				width: 20%;
+			}
+
+			#burger {
+				display: block;
+				width: 10%;
+			}
+
+		}
+	</style>
+</head>
+
+<body>
+	<noscript>You need to enable JavaScript to run this app.</noscript>
+	<header class="header">
+		<nav>
+
+			<ul class='navbar fade-in-border'>
+				<li>
+					<a onclick="scrollToSection('About')">
+						About
+					</a>
+				</li>
+				<li>
+					<a onclick="scrollToSection('ourteam')">
+						Our Team
+					</a>
+				</li>
+				<li>
+					<a onclick="scrollToSection('whatweoffer')">
+						Price List
+					</a>
+				</li>
+				<li>
+					<a onclick="scrollToSection('Contact')">
+						Contact Us
+					</a>
+				</li>
+				<li>
+					<a onclick="scrollToSection('Brands')">
+						Book Now!
+					</a>
+				</li>
+
+
+				<img id='logo' src='https://lirp.cdn-website.com/87a49eaf/dms3rep/multi/opt/lorka+logo-126w.png' alt="Logo" />
+             
+            </ul>
+          </nav>
+        </header>
+  
+        <div id="OpenMsg" class="background-container">
+          <div class="content">
+            <h1>
+              <b>Beauty Training With Proven Results</b>
+            </h1>
+            <p id="innov">
+              <b>
+                Innovative training in Brand Eduction, Makeup and Beauty
+                Treatments
+              </b>
+            </p>
+            <a id="learn" href="#">
+              Learn More
+            </a>
+          </div>
+        </div>
+  
+        <div id="whytrain">
+          <div id="desc">
+            <h1>Why train with Lorka</h1>
+            <p>
+              Starting out in the industry or upskilling we have you covered. At
+              Lorka we'll help you <br />
+              boost your competative edge so you can secure your future
+            </p>
+          </div>
+  
+          <div id="reasons" class="gridContainer">
+            <div>
+              <div class="grid-item fade-in-image">
+                <div class="imgContainer">
+                  <img id="mov" src="../Lorka_Web_App/assets/experience.png"></img>
+                </div>
+  
+                <div class="textContainer">
+                  <h5 class="head">Experienced Professionals</h5>
+                  <p class="desc">
+                    The staff at Lorka are all trained professionals who excel in
+                    their field. Many of our educators also have s training in
+                    many areas of the Beauty Industry.
+                  </p>
+                </div>
+              </div>
+  
+              <div class="grid-item fade-in-image">
+                <div class="imgContainer">
+                  <img src="../Lorka_Web_App/assets/unique.png"></img>
+                </div>
+  
+                <div class="textContainer">
+                  <h5 class="head">Unique Approach</h5>
+                  <p class="desc">
+                    The Lorka teaching method is based on an innovative and
+                    result-oriented technique that helps students overcome
+                    barriers to bring concrete results.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="grid-item fade-in-image">
+                <div class="imgContainer">
+                  <img src="../Lorka_Web_App/assets/small.png"></img>
+                </div>
+  
+                <div class="textContainer">
+                  <h5 class="head">Private or Small Groups</h5>
+                  <p class="desc">
+                    Some people learn best on their own; others prefer learning in
+                    groups. At Lorka , you can choose the environment that works
+                    best for you.
+                  </p>
+                </div>
+              </div>
+  
+              <div class="grid-item fade-in-image">
+                <div class="imgContainer">
+                  <img src="../Lorka_Web_App/assets/industry.png"></img>
+                </div>
+  
+                <div class="textContainer">
+                  <h5 class="head">Industry Focused Courses</h5>
+                  <p class="desc">
+                    Every course is industry focused for optimal effectiveness. We
+                    work with only innovative and proven Brands as our partners
+                    and ares brand educators for these brands.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div id="About" class="fade-in-image">
+          <div id="abImgContainter"></div>
+          <div id="abtxtcontainer">
+            <h3>
+              <b>About Us</b>
+            </h3>
+            <p>
+              Lorka is a training academy that provides top notch training in a
+              variety of subjects. We offer both private and small group sessions,
+              so you can choose exactly the training style you like best. Our
+              training academy is distinguished by the high level of service and
+              support we provide to our students, deep knowledge of our Industry
+              and the brands and Accreditations we offer , a unique Brand
+              educators service for cosmetic, skin care and beauty treatment Start
+              ups and Already established Brands and most importantly, the high
+              caliber of our tutors who are experts in Their fields.
+            </p>
+            <a href="tel:089 600 9228" id="callbtn">Call Us</a>
+          </div>
+        </div>
+  
+       
+        <div id="ourteam" class="ourteam">
+        <svg
+    id="squiggle"
+    viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    style="transform: translateY(0);"
+  >
+    <path fill="none" stroke="#2e8b57" strokeWidth="1" d="M0 50 Q25 20 50 50 T100 50"/>
+  </svg>
+  
+          <p class="ourteamheader">
+            <span id="meet">Meet The</span>
+            <span id="team"> Team!</span>
+          </p>
+  
+          <div class="row" id="fadeRow">
+            <div class="column">
+              <div class="card fade-in-image">
+                <img id="lor" src="../Lorka_Web_App/assets/Lorraine_carosel_pic.png" alt="Lorraine"   />
+                <div class="container">
+                  <h2>Lorraine Bourke Byrne</h2>
+                  <p class="title">Co-Founder</p>
+                  <p>
+                  Lorrine, a seasoned makeup artist with over a decade of experience, boasts an impressive portfolio including collaborations with renowned publications such as The Sun, The Sunday World, and The Herald. Her client roster features notable personalities like Celine Byrne, Nóirín O'Sullivan, and Miss Ireland, while also extending to partnerships with esteemed brands like Lidl, An Garda Síochána, Olive Media, and Gló Minerals.<br/><br/> Lorraine has showcased her talent on TV stations such as RTE, Network 2, and Kildare TV, and has affiliations with makeup brands like Bare Minerals, Essence Glo Minerals, Glo Therapeutics, and Antipodes. With grace and elegance, she imparts her extensive industry knowledge to students in various esteemed institutions including MKF, Portabello Institute, La Makeup Academy, and Galligens, contributing to the growth of the makeup industry.
+                    <br />
+                    <br />
+                  </p>
+                  <a href="mailto:lorkamakeupandbeauty@gmail.com">
+                  lorkamakeupandbeauty@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="column">
+              <div class="card fade-in-image" >
+                <img id="kar" src="../Lorka_Web_App/assets//Kara_carousel_pic.png" alt="Kara" />
+                <div class="container">
+                  <h2>Kara Byrne</h2>
+                  <p class="title">Co-Founder</p>
+                  <p>
+                  Kara, a seasoned makeup artist with 17 years of experience, holds qualifications in Makeup Artistry, Photographic and Media Makeup, Waxing, and Facial Therapy since 2005. For many years, she excelled as a freelance bridal makeup artist, crafting personalized packages nationwide.
+  
+  <br/><br/>Her talent extends to award-winning collaborations for the Irish Hair Awards with House of Color and L'Oreal Stylists. Kara has also managed premium accounts for Lancôme, Este Lauder, and No7, partnering with Debenhams and Boots to elevate sales while sharing her extensive knowledge with thousands of clients annually.
+  
+  <br/><br/>Beyond her industry contributions, Kara has lectured at prestigious institutions such as Portabello Institute, LA Makeup Academy, Galligam Beauty College, and CIBHT. Eventually, she co-founded Lorka Makeup and Beauty Academy with her business partner and best friend, Loraine Bourke Byrne.
+                    <br />
+                    <br />
+                  </p>
+                  <a href="mailto:lorkamakeupandbeauty@gmail.com">
+                  lorkamakeupandbeauty@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+  
+           <div class="column">
+              <div class="card fade-in-image">
+                <img id="justina" src="../Lorka_Web_App/assets/Justina_carousel_pic.png"  class="fade-in-image" />
+                <div class="container">
+                  <h2>Justina Zil</h2>
+                  <p class="title">Owner Of Justina Lashes</p>
+                  <p>
+                  Justina moved to Ireland in 2011 at the age of 18 from Lithuania. After getting herself settled and beginning a new life here she had her son in 2013.
+  
+  <br/><br/>She began her first Lash course when he was just 12 weeks old and has never looked back. Justina has continuously upskilled and perfected her techniques over the years and has now built a very successful lash business situated in Rathcoole in South West Dublin.
+  
+  <br/><br/>Justina specialises in Volume & Hybrid Lash application and has clients that come from all around the South West Dublin and North Kildare area to seek her expertise this had led her to branch out into teaching courses and setting up Justina Lash’s premium lash supplies in 2019.
+  
+  <br/><br/>Justina’s pride in her work and the joy she gets from her clients is what drives her.
+                  </p>
+  
+                  <a href="https://www.instagram.com/justinalashes_/" class="booknow">
+                      Instagram: justinalashes_
+                    </a><br/><br/>
+                  <a href="tel:087 964 8177">087 964 8177</a>
+                  <br/>
+                  <br/>
+                  <a href="https://www.fresha.com/a/justina-lashes-dublin-unit-3b-eaton-house-main-st-v2w1kfn3" class="booknow">Book Now!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <h1 id="whatweoffer">Price List</h1>
+  
+        <div id="Offer" >
+          <div id="headering"></div>
+          <div id="offerImgContainter">
+            <div class="category fade-in-image">
+              <h3>Makeup</h3>
+              <ul>
+                <li>Basic Makeup: 45 mins - €40</li>
+                <li>Makeup with Strip Lashes: 1 hour - €45</li>
+                <li>Makeup with Individual Lashes: 1 hour - €45 </li>
+                <li>Bridal Makeup: From €200 </li>
+                <li>Occasional Makeup: 1.5 hours - €60 </li>
+                <li>1-2-1 Lesson: 1 hour - €60</li>
+                <li>Strip/Individual Lash Application: 15 mins - €10</li>
+              </ul>
+            </div>
+  
+            <div class="category fade-in-image">
+              <h3>Brow</h3>
+              <ul>
+                <li>Tint: 15 mins - €10</li>
+                <li>Wax: 20 mins - €18</li>
+                <li>Hybrid Brow Wax and Tint: 40 mins - €28</li>
+                <li>Lamination: 30 mins - €40</li>
+              </ul>
+            </div>
+  
+            <div class="category fade-in-image">
+              <h3>Lash</h3>
+              <ul>
+                <li>Lash Lift: 30 mins - €40</li>
+                <li>Lamination and Lash Lift Combo: 45 mins - €70</li>
+                <li>Lash Tint: 20 mins - €15</li>
+              </ul>
+            </div>
+  
+            <div class="category fade-in-image">
+              <h3>Waxing</h3>
+              <ul>
+                <li>Lip Wax: 15 mins - €15</li>
+                <li>Chin Wax: 15 mins - €15</li>
+                <li>Sides of the Face: 15 mins - €15</li>
+                <li>Facial Waxing Combo: 35 mins - €35</li>
+              </ul>
+            </div>
+  
+            <div class="category fade-in-image">
+              <h3>Courses</h3>
+              <ul>
+                <li>Hybrid Wax and Tint Course Accredited: 4 hours - €495</li>
+                <li>Brow Lamination Accredited: 3 hours - €300</li>
+                <li>Lash Lift Course Accredited: 3 hours - €300</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+      
+        <div id="Brands">
+        <p class="ourteamheader"><span id="team">Our</span> <span >Brands!</span></p>
+          <img src="../Lorka_Web_App/assets//Brands.png"></img>
+        </div>
+  
+        <div>
+          <a href="https://www.fresha.com/a/lorka-makeup-and-beauty-training-academy-rathcoole-eaton-house-main-street-kqcrwbq4"><p class="ourteamheader"><span >Book</span> <span id="team">Now!</span></p></a>
+          <div id='Book' class="Bookings">
+          
+          </div>
+  
+        </div>
+  
+        <div id="Contact">
+          <div id="CompanyInfo">
+            <h3>
+              <a href="tel:089 600 9228"> Phone : 089 600 9228 </a>
+          
+              <a href="tel:086 229 0859"> / 086 229 0859 </a>
+            </h3>
+          
+             
+            
+  
+            
+            <h3>
+              <a href="mailto:lorkamakeupandbeauty@gmail.com">
+                
+                Email : lorkamakeupandbeauty@gmail.com
+              </a>
+            </h3>
+            <h3>
+              <a href="https://www.google.com/maps/search/Unit+3b,+Eaton+House,+Main+St,+Rathcoole,+Co.+Dublin,+D24+Y967/@53.2809694,-6.4733454,17z/data=!3m1!4b1?entry=ttu">
+                
+                Location : Unit 3b, Eaton House, Main St, Rathcoole, Co. Dublin, D24 Y967
+              </a>
+            </h3>
+  
+            <div id="socials">
+              <div>
+                <a href="https://www.facebook.com/Lorkabeautytraining">
+                  <img src="../Lorka_Web_App/assets/facebook.png" />
+                </a>
+              </div>
+              <div>
+                <a href="https://www.instagram.com/lorkamakeupbeauty/">
+                  <img src="../Lorka_Web_App/assets//instagram.png" />
+                </a>
+              </div>
+              <div>
+                <a>
+                  <img src="../Lorka_Web_App/assets/x.png" />
+                </a>
+              </div>
+            </div>
+          </div>
+  
+          <div id="OpeningHours">
+            <h2>Opening Hours: </h2>
+            <p>
+              Monday + Sunday - Closed
+              <br />
+              <br /> Tuesday 9 a.m.–4 p.m.
+              <br />
+              <br />
+              Wednesday 9 a.m.–4 p.m.
+              <br />
+              <br />
+              Thursday 9 a.m.–4 p.m.
+              <br />
+              <br />
+              Friday 9 a.m.–7 p.m.
+              <br />
+              <br /> Saturday 9 a.m.–5 p.m.
+            </p>
+          </div>
+        </div>
+      
+
+    
+
+  </body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollPosition = 0;
+
+      const handleScroll = () => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        setScrollPosition(scrollY);
+      };
+
+      const images = document.querySelectorAll(".fade-in-image");
+
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5, // Adjust this value based on when you want the fade-in effect to start
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      images.forEach((image) => {
+        observer.observe(image);
+      });
+
+      window.addEventListener("scroll", handleScroll);
+
+      function setScrollPosition(scrollY) {
+        // Your logic for handling scroll position
+        console.log("Current Scroll Position:", scrollY);
+      }
+
+      // Cleanup on component unmount or page exit
+      window.addEventListener("beforeunload", () => {
+        observer.disconnect();
+        window.removeEventListener("scroll", handleScroll);
+      });
+    });
+
+    const scrollTo = (id) => {
+      const targetElement = document.getElementById(id);
+      window.scrollTo({
+        top: targetElement.offsetTop - 200,
+        behavior: 'smooth'
+      });
+    };
+
+    const scrollToSection = (id) => {
+      scrollTo(id);
+    };
+  </script>
+
+ 
+</html>
