@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.fresha.com https://*.amazonaws.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.fresha.com https://*.amazonaws.com; style-src 'self' 'unsafe-inline' https://*.fresha.com; img-src 'self' data: https://*.fresha.com https://*.amazonaws.com; frame-src 'self' https://*.fresha.com https://www.fresha.com; connect-src 'self' https://*.fresha.com https://*.amazonaws.com;">
 	<link rel="icon" href="https://lirp.cdn-website.com/87a49eaf/dms3rep/multi/opt/lorka+logo-126w.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="theme-color" content="#000000" />
@@ -46,26 +47,19 @@
 
 		.navbar {
 			display: flex;
-			flex-direction: column;
+			justify-content: center;
 			align-items: center;
 			list-style: none;
 			padding: 0;
-			margin: 0;
+			margin: 0 auto;
+			max-width: 1200px;
+			gap: 3rem;
 		}
 
 		.navbar li {
-			width: 100%;
-			text-align: center;
-			padding: 1rem;
-			display: none;
-		}
-
-		.navbar li:last-child {
-			display: block;
-		}
-
-		.navbar.active li {
-			display: block;
+			padding: 0;
+			display: flex;
+			align-items: center;
 		}
 
 		.navbar a {
@@ -73,6 +67,8 @@
 			text-decoration: none;
 			font-size: 1.2rem;
 			transition: all 0.3s ease;
+			padding: 0.5rem 0;
+			text-align: center;
 		}
 
 		.navbar a:hover {
@@ -81,26 +77,59 @@
 
 		#logo {
 			width: 80px;
-			margin: 0 auto;
+			height: auto;
+			border-radius: 50%;
+		}
+
+		#logo2
+		{
+			border-radius: 50%;
 		}
 
 		.mobile-menu-btn {
-			display: block;
-			position: absolute;
-			top: 1rem;
-			right: 1rem;
-			background: none;
-			border: none;
-			font-size: 1.5rem;
-			color: #2e8b57;
-			cursor: pointer;
-			z-index: 1001;
+			display: none;
+		}
+
+		/* Mobile Navigation */
+		@media screen and (max-width: 768px) {
+			.navbar {
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.navbar li {
+				width: 100%;
+				text-align: center;
+				display: none;
+				justify-content: center;
+			}
+
+			.navbar li:last-child {
+				display: flex;
+			}
+
+			.navbar.active li {
+				display: flex;
+			}
+
+			.mobile-menu-btn {
+				display: block;
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				background: none;
+				border: none;
+				font-size: 1.5rem;
+				color: #2e8b57;
+				cursor: pointer;
+				z-index: 1001;
+			}
 		}
 
 		/* Hero Section */
 		.background-container {
 			min-height: 60vh;
-			background-image: url("../Lorka_Web_App/assets/Background.jpg");
+			background-image: url("../assets/Background.jpg");
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
@@ -196,35 +225,29 @@
 		}
 
 		#offerImgContainter {
-			display: grid;
-			grid-template-columns: repeat(3, minmax(300px, 1fr));
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin: 20px;
 			gap: 2rem;
 			width: 100%;
 			padding: 1rem;
 			max-width: 1200px;
-			margin: 0 auto;
-			justify-content: center;
-		}
-
-		/* This ensures the last row is centered */
-		#offerImgContainter::after {
-			content: '';
-			grid-column: span 3;
 		}
 
 		.category {
 			background: white;
-			border: 2px solid #FFD700;
+			border: 3px solid rgb(190, 163, 6);
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 			border-radius: 10px;
-			padding: 2rem;
+			padding: 1.5rem;
 			transition: transform 0.3s ease;
-			height: 100%;
 			display: flex;
 			flex-direction: column;
-			justify-self: center;
-			width: 100%;
-			max-width: 350px;
+			width: 350px;
+			height: 550px;
+			margin: 0;
 		}
 
 		.category:hover {
@@ -234,26 +257,49 @@
 		.category h3 {
 			color: #2e8b57;
 			font-size: 1.8rem;
-			margin-bottom: 1.5rem;
-			border-bottom: 2px solid #FFD700;
+			margin-bottom: 1rem;
+			border-bottom: 2px solid rgb(190, 163, 6);
 			padding-bottom: 0.5rem;
+			text-align: center;
 		}
 
 		.category ul {
 			list-style: none;
 			padding: 0;
 			margin: 0;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 0.3rem;
 		}
 
 		.category li {
 			color: #2e8b57;
-			padding: 0.8rem 0;
+			padding: 0.4rem 0;
 			border-bottom: 1px solid rgba(46, 139, 87, 0.1);
 			font-size: 1.1rem;
+			text-align: center;
 		}
 
 		.category li:last-child {
 			border-bottom: none;
+		}
+
+		@media screen and (max-width: 1200px) {
+			.category {
+				width: 300px;
+				height: 500px;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			.category {
+				width: 100%;
+				max-width: 350px;
+				height: auto;
+				min-height: 400px;
+			}
 		}
 
 		/* Contact Section */
@@ -454,10 +500,10 @@
 		#About {
 			display: flex;
 			align-items: center;
-			max-width: 1400px;
-			margin: 2rem auto;
-			padding: 2rem;
-			background: white;
+			width: 100%;
+			margin: 2rem 0;
+			padding: 4rem 2rem;
+			background: #2e8b57;
 		}
 
 		#abImgContainer {
@@ -471,33 +517,35 @@
 		#abImgContainer img {
 			width: 100%;
 			height: auto;
-			max-width: 200px;
+			max-width: 250px;
 			object-fit: contain;
 		}
 
 		#abtxtcontainer {
 			flex: 0 0 80%;
 			padding: 2rem;
-			color: #2e8b57;
+			color: white;
 		}
 
 		#abtxtcontainer h3 {
 			font-size: 2.5rem;
 			margin-bottom: 1.5rem;
 			font-weight: 500;
+			color: white;
 		}
 
 		#abtxtcontainer p {
 			font-size: 1.1rem;
 			line-height: 1.6;
 			margin-bottom: 2rem;
+			color: white;
 		}
 
 		#callbtn {
 			display: inline-block;
 			padding: 0.8rem 1.5rem;
-			background-color: #2e8b57;
-			color: white;
+			background-color: white;
+			color: #2e8b57;
 			text-decoration: none;
 			border-radius: 5px;
 			border: 2px solid white;
@@ -505,16 +553,16 @@
 		}
 
 		#callbtn:hover {
-			background-color: white;
-			color: #2e8b57;
-			border-color: #2e8b57;
+			background-color: transparent;
+			color: white;
+			border-color: white;
 		}
 
 		/* Mobile styles */
 		@media screen and (max-width: 768px) {
 			#About {
 				flex-direction: column;
-				padding: 1rem;
+				padding: 2rem 1rem;
 			}
 
 			#abImgContainer {
@@ -623,32 +671,87 @@
 			}
 		}
 
-		/* Responsive adjustments */
-		@media screen and (max-width: 1200px) {
-			#offerImgContainter {
-				grid-template-columns: repeat(2, minmax(280px, 1fr));
-				max-width: 800px;
-			}
-			
-			#offerImgContainter::after {
-				grid-column: span 2;
-			}
+		/* Brands Section */
+		#Brands {
+			width: 100%;
+			padding: 0;
+			margin: 2rem 0;
+			overflow: hidden;
+		}
+
+		.brands-container {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 2rem;
+			display: flex;
+			justify-content: center;
+		}
+
+		#Brands img {
+			width: 100%;
+			max-width: 1000px;
+			height: auto;
+			display: block;
+			margin: 0;
+			padding: 0;
+		}
+
+		#Brands .ourteamheader {
+			text-align: center;
+			margin-bottom: 2rem;
 		}
 
 		@media screen and (max-width: 768px) {
-			#offerImgContainter {
-				grid-template-columns: minmax(280px, 1fr);
-				max-width: 400px;
+			.brands-container {
+				padding: 0 1rem;
 			}
-			
-			#offerImgContainter::after {
-				grid-column: span 1;
-			}
-			
-			.category {
-				margin: 0 auto;
-				width: 100%;
-			}
+		}
+
+		/* Book Now Section */
+		.book-now-section {
+			text-align: center;
+			width: 100%;
+			padding: 2rem 0;
+		}
+
+		.book-now-section a {
+			text-decoration: none;
+			display: block;
+			margin: 0 auto;
+		}
+
+		.book-now-section .ourteamheader {
+			text-align: center;
+			margin: 0 0 2rem 0;
+		}
+
+		#Book {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+
+		/* Add booking button styles */
+		.booking-button {
+			display: inline-block;
+			margin: 10px 15px;
+			padding: 10px 20px;
+			background-color: #2e8b57;
+			color: white;
+			border: 2px solid white;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-family: inherit;
+			font-size: 1em;
+		}
+		
+		.booking-button:hover {
+			background-color: white;
+			color: #2e8b57;
+			border-color: #2e8b57;
 		}
 
 		/* Chatbot Styles */
@@ -755,6 +858,34 @@
 		.suggestion-chip:hover {
 			background: #e0e0e0;
 		}
+
+		/* Add this CSS for the booking container */
+		.booking-container {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			width: 100%;
+		}
+
+		.booking-button {
+			display: inline-block;
+			padding: 10px 20px;
+			background-color: #2e8b57;
+			color: white;
+			text-decoration: none;
+			border-radius: 20px;
+			text-align: center;
+			transition: background-color 0.3s ease;
+			border: none;
+			cursor: pointer;
+			font-family: inherit;
+			font-size: 1em;
+			align-self: flex-start;
+		}
+		
+		.booking-button:hover {
+			background-color: #247045;
+		}
 	</style>
 </head>
 
@@ -777,10 +908,10 @@
 					<a href="#Contact" onclick="scrollToSection('Contact'); return false;">Contact Us</a>
 				</li>
 				<li>
-					<a href="#Brands" onclick="scrollToSection('Brands'); return false;">Book Now!</a>
+					<a href="https://www.fresha.com/a/lorka-makeup-and-beauty-training-academy-rathcoole-lorka-training-and-aesthetics-main-street-y33ua8cj/all-offer?venue=true" target="_blank">Book Now!</a>
 				</li>
 				<li>
-					<img id="logo" src="https://lirp.cdn-website.com/87a49eaf/dms3rep/multi/opt/lorka+logo-126w.png" alt="Lorka Logo" />
+					<img id="logo" src="../assets/logo.png" alt="Lorka Logo" />
 				</li>
 			</ul>
 		</nav>
@@ -815,7 +946,7 @@
 		<div class="gridContainer">
 			<div class="grid-item fade-in-image">
 				<div class="imgContainer">
-					<img src="../Lorka_Web_App/assets/experience.png" alt="Experienced Professionals Icon">
+					<img src="../assets/experience.png" alt="Experienced Professionals Icon">
 				</div>
 				<div class="textContainer">
 					<h5>Experienced Professionals</h5>
@@ -829,7 +960,7 @@
 
 			<div class="grid-item fade-in-image">
 				<div class="imgContainer">
-					<img src="../Lorka_Web_App/assets/unique.png" alt="Unique Approach Icon">
+					<img src="../assets/unique.png" alt="Unique Approach Icon">
 				</div>
 				<div class="textContainer">
 					<h5>Unique Approach</h5>
@@ -843,7 +974,7 @@
 
 			<div class="grid-item fade-in-image">
 				<div class="imgContainer">
-					<img src="../Lorka_Web_App/assets/small.png" alt="Small Groups Icon">
+					<img src="../assets/small.png" alt="Small Groups Icon">
 				</div>
 				<div class="textContainer">
 					<h5>Private or Small Groups</h5>
@@ -857,7 +988,7 @@
 
 			<div class="grid-item fade-in-image">
 				<div class="imgContainer">
-					<img src="../Lorka_Web_App/assets/industry.png" alt="Industry Focused Icon">
+					<img src="../assets/industry.png" alt="Industry Focused Icon">
 				</div>
 				<div class="textContainer">
 					<h5>Industry Focused Courses</h5>
@@ -873,7 +1004,7 @@
 
 	<div id="About" class="fade-in-image">
 		<div id="abImgContainer">
-			<img src="../Lorka_Web_App/assets/logo.png" alt="Lorka Logo">
+			<img id="logo2" src="../assets/logo.png" alt="Lorka Logo">
 		</div>
 		<div id="abtxtcontainer">
 			<h3>About Us</h3>
@@ -910,7 +1041,7 @@
 		<div class="row" id="fadeRow">
 			<div class="column">
 				<div class="card fade-in-image">
-					<img src="../Lorka_Web_App/assets/Lorraine_carosel_pic.png" alt="Lorraine" />
+					<img src="../assets/Lorraine_carosel_pic.png" alt="Lorraine" />
 					<div class="container">
 						<h2>Lorraine Bourke Byrne</h2>
 						<p class="title">Co-Founder</p>
@@ -927,7 +1058,7 @@
 
 			<div class="column">
 				<div class="card fade-in-image">
-					<img id="justina" src="../Lorka_Web_App/assets/Justina_carousel_pic.png" alt="Justina" />
+					<img id="justina" src="../assets/Justina_carousel_pic.png" alt="Justina" />
 					<div class="container">
 						<h2>Justina Zil</h2>
 						<p class="title">Owner Of Justina Lashes</p>
@@ -1007,23 +1138,40 @@
 					<li>Lash Lift Course Accredited: 3 hours - €300</li>
 				</ul>
 			</div>
+
+			<div class="category fade-in-image">
+				<h3>Aesthetics</h3>
+				<ul>
+					<li>Dermaplaning: 45 mins - €45</li>
+					<li>Microneedling: 1 hour - €120</li>
+					<li>Chemical Peel: 45 mins - €80</li>
+					<li>LED Light Therapy: 30 mins - €40</li>
+					<li>Hydro Facial: 1 hour - €90</li>
+				</ul>
+			</div>
+
+			<div class="category fade-in-image">
+				<h3>Aesthetics Continued</h3>
+				<ul>
+					<li>Facial Massage: 30 mins - €35</li>
+					<li>Skin Consultation: 30 mins - €30</li>
+					<li>Anti-Aging Treatment: 1 hour - €100</li>
+					<li>Acne Treatment: 45 mins - €75</li>
+					<li>Facial Package (3 sessions): €200</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 
 
 	<div id="Brands">
-		<p class="ourteamheader"><span id="team">Our</span> <span >Brands!</span></p>
-		<img src="../Lorka_Web_App/assets//Brands.png"></img>
-	</div>
-
-	<div>
-		<a href="https://www.fresha.com/a/lorka-makeup-and-beauty-training-academy-rathcoole-eaton-house-main-street-kqcrwbq4"><p class="ourteamheader"><span >Book</span> <span id="team">Now!</span></p></a>
-		<div id='Book' class="Bookings">
-		
+		<p class="ourteamheader"><span id="team">Our</span> <span>Brands!</span></p>
+		<div class="brands-container">
+			<img src="../assets/Brands.png" alt="Our Brands">
 		</div>
-
 	</div>
 
+	
 	<div id="Contact">
 		<div id="CompanyInfo">
 			<h3>
@@ -1053,17 +1201,17 @@
 			<div id="socials">
 				<div>
 					<a href="https://www.facebook.com/Lorkabeautytraining">
-						<img src="../Lorka_Web_App/assets/facebook.png" />
+						<img src="../assets/facebook.png" />
 					</a>
 				</div>
 				<div>
 					<a href="https://www.instagram.com/lorkamakeupbeauty/">
-						<img src="../Lorka_Web_App/assets//instagram.png" />
+						<img src="../assets/instagram.png" />
 					</a>
 				</div>
 				<div>
 					<a>
-						<img src="../Lorka_Web_App/assets/x.png" />
+						<img src="../assets/x.png" />
 					</a>
 				</div>
 			</div>
@@ -1102,9 +1250,11 @@
 		</div>
 		<div class="suggestion-chips">
 			<div class="suggestion-chip">Makeup prices</div>
-			<div class="suggestion-chip">Brow services</div>
-			<div class="suggestion-chip">Lash services</div>
-			<div class="suggestion-chip">Course info</div>
+			<div class="suggestion-chip">Brow prices</div>
+			<div class="suggestion-chip">Lash prices</div>
+			<div class="suggestion-chip">Courses </div>
+			<div class="suggestion-chip">Bookings</div>
+			<div class="suggestion-chip">Aesthetics prices</div>
 		</div>
 		<div class="chat-input">
 			<input type="text" placeholder="Type your question...">
@@ -1203,28 +1353,47 @@
 		// Service information database
 		const serviceInfo = {
 			makeup: {
-				'basic makeup': '45 mins - €40\n',
-				'strip lashes': '1 hour - €45\n',
-				'individual lashes': '1 hour - €45\n',
-				'bridal makeup': 'From €200\n',
-				'occasional makeup': '1.5 hours - €60\n',
-				'1-2-1 lesson': '1 hour - €60\n'
+				'Basic makeup': '45 mins - €40',
+				'Makeup with strip lashes': '1 hour - €45',
+				'Makeup with individual lashes': '1 hour - €45',
+				'Bridal makeup': 'From €200',
+				'Occasional makeup': '1.5 hours - €60',
+				'1-2-1 lesson': '1 hour - €60',
+				'Strip/individual lash application': '15 mins - €10'
 			},
 			brow: {
-				'tint': '15 mins - €10\n',
-				'wax': '20 mins - €18\n',
-				'hybrid brow': '40 mins - €28\n',
-				'lamination': '30 mins - €40\n'
+				'Tint': '15 mins - €10',
+				'Wax': '20 mins - €18',
+				'Hybrid brow wax and tint': '40 mins - €28',
+				'Lamination': '30 mins - €40'
 			},
 			lash: {
-				'lift': '30 mins - €40\n',
-				'tint': '20 mins - €15\n',
-				'combo': '45 mins - €70\n'
+				'Lash Lift': '30 mins - €40',
+				'Lamination and lash lift combo': '45 mins - €70',
+				'Lash tint': '20 mins - €15'
+			},
+			waxing: {
+				'Lip wax': '15 mins - €15',
+				'Chin wax': '15 mins - €15',
+				'Sides of the face': '15 mins - €15',
+				'Facial waxing combo': '35 mins - €35'
+			},
+			aesthetics: {
+				'Dermaplaning': '45 mins - €45',
+				'Microneedling': '1 hour - €120',
+				'Chemical peel': '45 mins - €80',
+				'Led light therapy': '30 mins - €40',
+				'Hydro facial': '1 hour - €90',
+				'Facial massage': '30 mins - €35',
+				'Skin consultation': '30 mins - €30',
+				'Anti-aging treatment': '1 hour - €100',
+				'Acne treatment': '45 mins - €75',
+				'Facial package (3 sessions)': '€200'
 			},
 			courses: {
-				'hybrid wax and tint': '4 hours - €495\n',
-				'brow lamination': '3 hours - €300\n',
-				'lash lift': '3 hours - €300\n'
+				'Hybrid wax and tint course accredited': '4 hours - €495',
+				'Brow lamination accredited': '3 hours - €300',
+				'Lash lift course accredited': '3 hours - €300'
 			}
 		};
 
@@ -1247,35 +1416,214 @@
 		function addMessage(message, sender) {
 			const messageDiv = document.createElement('div');
 			messageDiv.className = `message ${sender}-message`;
-			messageDiv.textContent = message;
-			chatMessages.appendChild(messageDiv);
+			
+			// Check if this is a booking response
+			if (sender === 'bot' && message.includes('Our bookings are taken through Fresha')) {
+				const bookingContainer = document.createElement('div');
+				bookingContainer.className = 'booking-container';
+				
+				const messageText = document.createElement('div');
+				messageText.className = 'message bot-message';
+				messageText.textContent = 'Our bookings are taken through Fresha. Click the button below to book your appointment:';
+				
+				const bookLink = document.createElement('a');
+				bookLink.href = 'https://www.fresha.com/a/lorka-makeup-and-beauty-training-academy-rathcoole-eaton-house-main-street-kqcrwbq4';
+				bookLink.target = '_blank';
+				bookLink.rel = 'noopener noreferrer';
+				bookLink.className = 'booking-button';
+				bookLink.textContent = 'Book Now';
+				
+				bookingContainer.appendChild(messageText);
+				bookingContainer.appendChild(bookLink);
+				chatMessages.appendChild(bookingContainer);
+			} 
+			// Check if this is a location response
+			else if (sender === 'bot' && message.includes('Our location is')) {
+				const locationContainer = document.createElement('div');
+				locationContainer.className = 'booking-container';
+				
+				const messageText = document.createElement('div');
+				messageText.className = 'message bot-message';
+				messageText.textContent = 'Our location is Unit 3b, Eaton House, Main St, Rathcoole, Co. Dublin, D24 Y967. Click the button below to get directions:';
+				
+				const directionsLink = document.createElement('a');
+				directionsLink.href = 'https://www.google.com/maps/search/Unit+3b,+Eaton+House,+Main+St,+Rathcoole,+Co.+Dublin,+D24+Y967/@53.2809694,-6.4733454,17z/data=!3m1!4b1?entry=ttu';
+				directionsLink.target = '_blank';
+				directionsLink.rel = 'noopener noreferrer';
+				directionsLink.className = 'booking-button';
+				directionsLink.textContent = 'Get Directions';
+				
+				locationContainer.appendChild(messageText);
+				locationContainer.appendChild(directionsLink);
+				chatMessages.appendChild(locationContainer);
+			}
+			
+			else {
+				messageDiv.textContent = message;
+				chatMessages.appendChild(messageDiv);
+			}
+			
 			chatMessages.scrollTop = chatMessages.scrollHeight;
 		}
 
 		// Handle user input
 		function handleUserInput(input) {
 			input = input.toLowerCase();
-			let response = "I'm not sure about that. Would you like to know about our makeup, brow, lash services, or courses?";
+			let response = "I'm not sure about that. If you are looking for the price of something please ask for the price of a service.";
 
-			// Format service info into readable text
-			function formatServiceInfo(services) {
-				return Object.entries(services)
-					.map(([service, details]) => `- ${service.charAt(0).toUpperCase() + service.slice(1)}: ${details}`)
-					.join('\n');
+			if(input.includes("Book")||input.includes("book")||input.includes("Booking")||input.includes("booking")||input.includes("Bookings")||input.includes("bookings")||input.includes("bok")||input.includes("buk")||input.includes("bokin"))
+			{
+				response = "Our bookings are taken through Fresha. Click the button below to book your appointment:";
 			}
-
+			else if(input.includes("where")||input.includes("Where")||input.includes("Where is")||input.includes("where is")||input.includes("Where is your location")||input.includes("where is your location")||input.includes("locat")||input.includes("lokay")||input.includes("wher"))
+			{
+				response = "Our location is Unit 3b, Eaton House, Main St, Rathcoole, Co. Dublin, D24 Y967. Click the button below to get directions:";
+			}
+			else if(input.includes("Contact")||input.includes("contact")||input.includes("Contact us")||input.includes("contact us")||input.includes("Contact us")||input.includes("contact us")||input.includes("cont")||input.includes("contc")||input.includes("kontak"))
+			{
+				response = "Please check the bottom of the page for all our contact information including email, phone numbers and social media links.";
+			}
+			else if(input.includes('course')||input.includes("courses")||input.includes("Course")||input.includes("Courses")||input.includes("cors")||input.includes("corse")||input.includes("cours")) 
+			{
+				if (input.includes('hybrid')) {
+					response = "Our hybrid wax and tint course is €495 for 4 hours.";
+				}
+				else if (input.includes('brow')) {
+					response = "Our brow lamination course is €300 for 3 hours.";
+				}
+				else if (input.includes('lash')) {
+					response = "Our lash lift course is €300 for 3 hours.";
+				}
+				else {
+					response = "Our accredited courses include:\n" + formatServiceInfo(serviceInfo.courses);
+				}
+			}
 			// Check for service-related keywords
-			if (input.includes('makeup') || input.includes('make up')) {
-				response = "Our makeup services include:\n" + formatServiceInfo(serviceInfo.makeup);
-			} else if (input.includes('brow')) {
-				response = "Our brow services include:\n" + formatServiceInfo(serviceInfo.brow);
-			} else if (input.includes('lash')) {
-				response = "Our lash services include:\n" + formatServiceInfo(serviceInfo.lash);
-			} else if (input.includes('course')) {
-				response = "Our courses include:\n" + formatServiceInfo(serviceInfo.courses);
+			else if(input.includes("Cost")||input.includes("cost")||input.includes("price")||input.includes("prices")||input.includes("costs")||input.includes("pricings")||input.includes("pricing")||input.includes("costing")||input.includes("Price")||input.includes("pricings")||input.includes("pricing")||input.includes("costing")||input.includes("How much")||input.includes("how much")||input.includes("How much is")||input.includes("how much is"))
+			{	
+				//Makeup Pricing responses
+				if (input.includes('makeup') || input.includes('make up')) 
+				{
+					if(input.includes("Basic")||input.includes("basic")||input.includes("classic")||input.includes("full face")||input.includes("Full Face")||input.includes("normal")||input.includes("Normal")||input.includes("full face of makeup")||input.includes("Full Face of makeup"))
+					{
+						response = "Our basic makeup service is €40 for 45 minutes. If you would like to add strip or individual lashes, we offer both options for €45 for a 1-hour service.";
+					}
+					else if(input.includes("Bridal")||input.includes("bridal")||input.includes("bridal makeup")||input.includes("Bridal Makeup"))
+					{
+						response = "Our bridal makeup service starts from €200. Please contact us for a detailed quote based on your specific requirements.";
+					}
+					else if(input.includes("Occasional")||input.includes("occasional")||input.includes("Occasional Makeup")||input.includes("occasional makeup"))
+					{
+						response = "Our occasional makeup service is €60 for a 1.5-hour appointment.";
+					}
+					else if(input.includes("1-2-1")||input.includes("1-2-1 lesson")||input.includes("1-2-1 lesson"))
+					{
+						response = "Our 1-2-1 makeup lesson is €60 for a one-hour session. We also offer strip or individual lash application separately for €10 (15 mins).";
+					}
+					else
+					{
+						response = "Our makeup services include:\n" + formatServiceInfo(serviceInfo.makeup);
+					}
+				} 
+				//Brow Pricing responses
+				else if (input.includes('brow')||input.includes('eyebrow')||input.includes('eyebrows')||input.includes('brows')) 
+				{
+					if (input.includes('wax')) {
+						response = "Our brow wax service is €18 for a 20-minute appointment.";
+					}
+					else if (input.includes('hybrid')) {
+						response = "Our hybrid brow wax and tint service is €28 for a 40-minute appointment.";
+					}
+					else if (input.includes('lamination')) {
+						response = "Our brow lamination service is €40 for a 30-minute appointment.";
+					}
+					else if (input.includes('tint')) {
+						response = "Our brow tint service is €10 for a 15-minute appointment.";
+					}
+					else {
+						response = "Our brow services include:\n" + formatServiceInfo(serviceInfo.brow);
+					}
+				}
+				//Lash Pricing responses
+				else if (input.includes('lash')||input.includes('lashs')) 
+				{
+					if (input.includes('lift')) {
+						response = "Our lash lift service is €40 for a 30-minute appointment. We also offer a lamination and lash lift combo for €70 (45 mins).";
+					}
+					else if (input.includes('tint')) {
+						response = "Our lash tint service is €15 for a 20-minute appointment.";
+					}
+					else if (input.includes('combo')) {
+					
+						response = "Our lamination and lash lift combo service is €70 for a 45-minute appointment.";
+					}
+					else {
+						response = "Our lash services include:\n" + formatServiceInfo(serviceInfo.lash);
+					}
+				}
+				//Waxing Pricing responses
+				else if (input.includes('wax') || input.includes('waxing')) 
+				{
+					if (input.includes('lip')) {
+						response = "Our lip wax service is €15 for a 15-minute appointment.";
+					}
+					else if (input.includes('chin')) {
+						response = "Our chin wax service is €15 for a 15-minute appointment.";
+					}
+					else if (input.includes('face') || input.includes('facial')) {
+						response = "Our facial waxing services:\nSides of the face: €15 (15 mins)\nFacial waxing combo: €35 (35 mins)";
+					}
+					else {
+						response = "Our waxing services include:\n" + formatServiceInfo(serviceInfo.waxing);
+					}
+				}
+				//Aesthetics Pricing responses
+				else if (input.includes('aesthetic') || input.includes("Aesthetics")) 
+				{
+					if (input.includes('derma') || input.includes('dermaplaning')) {
+						response = "Our dermaplaning service is €45 for a 45-minute treatment.";
+					}
+					else if (input.includes('needle') || input.includes('microneedling')) {
+						response = "Our microneedling treatment is €120 for a 1-hour session.";
+					}
+					else if (input.includes('peel') || input.includes('chemical')) {
+						response = "Our chemical peel treatment is €80 for a 45-minute session.";
+					}
+					else if (input.includes('led') || input.includes('light')) {
+						response = "Our LED light therapy is €40 for a 30-minute session.";
+					}
+					else if (input.includes('hydro') || input.includes('facial')) {
+						response = "Our hydro facial treatment is €90 for a 1-hour session.";
+					}
+					else if (input.includes('massage')) {
+						response = "Our facial massage is €35 for a 30-minute session.";
+					}
+					else if (input.includes('consult')) {
+						response = "Our skin consultation is €30 for a 30-minute session.";
+					}
+					else if (input.includes('aging') || input.includes('anti')) {
+						response = "Our anti-aging treatment is €100 for a 1-hour session.";
+					}
+					else if (input.includes('acne')) {
+						response = "Our acne treatment is €75 for a 45-minute session.";
+					}
+					else if (input.includes('package')) {
+						response = "Our facial package includes 3 sessions for €200.";
+					}
+					else {
+						response = "Our aesthetics services include:\n" + formatServiceInfo(serviceInfo.aesthetics);
+					}
+				}
 			}
 
 			setTimeout(() => addMessage(response, 'bot'), 500);
+		}
+
+		// Format service info into readable text
+		function formatServiceInfo(services) {
+			return Object.entries(services)
+				.map(([service, details]) => `${service.charAt(0).toUpperCase() + service.slice(1)}: ${details}`)
+				.join('\n');
 		}
 
 		// Event listeners
